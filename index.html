@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <style>
         body {
-            @apply font-sans flex flex-col items-center m-20;
+            @apply font-sans flex items-center justify-center m-20;
             background-color: cadetblue; 
             color: black; 
         }
@@ -14,7 +14,7 @@
 
     <title>Simple TODO App</title>
 </head>
-<body class="font-sans flex flex-col items-center m-20 ">
+<body class="font-sans flex flex-col items-center m-20">
     <h1 class="text-2xl font-bold mb-4">Simple TODO List</h1>
     <div class="mb-4">
         <input type="text" id="newTask" placeholder="New Task" class="p-2 border rounded">
@@ -22,34 +22,6 @@
     </div>
     <ul id="todo-list" class="list-none p-0"></ul>
 
-    <script>
-        function addTask() {
-            const newTaskInput = document.getElementById('newTask');
-            const taskText = newTaskInput.value.trim();
-            
-            if (taskText !== '') {
-                const todoList = document.getElementById('todo-list');
-                const listItem = document.createElement('li');
-                listItem.innerHTML = `
-                    <input type="checkbox" onchange="toggleTask(this)" class="mr-2">
-                    <span>${taskText}</span>
-                    <button onclick="removeTask(this)" class="ml-2 p-2 bg-red-500 text-white rounded">Remove</button>
-                `;
-                todoList.appendChild(listItem);
-                
-                newTaskInput.value = '';
-            }
-        }
-
-        function toggleTask(checkbox) {
-            const taskText = checkbox.nextElementSibling;
-            taskText.style.textDecoration = checkbox.checked ? 'line-through' : 'none';
-        }
-
-        function removeTask(button) {
-            const listItem = button.parentNode;
-            listItem.parentNode.removeChild(listItem);
-        }
-    </script>
+    
 </body>
 </html>
